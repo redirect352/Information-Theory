@@ -253,7 +253,7 @@ namespace WindowsFormsApp1
             char[,] tmp = new char[key, len];
 
             int cycle = 2 * key - 2, i = 0, rowkey = key, step = cycle, row, n;
-            int char_pos, block;
+            int char_pos;
             for ( row = 0; row < key  ; row++ ) {
                 char_pos = row ;
                 n = 1;
@@ -555,7 +555,7 @@ namespace WindowsFormsApp1
         private string decTwoBytes(char[] s)
         {
             char[,] tmp = new char[size, size];
-            int i, j, l = 0;
+            int i, j;
             string result = "";
            
             for (i = 0; i < size; i++)
