@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
         }
 
         private void EncryptButton_Click(object sender, EventArgs e)
@@ -154,10 +155,43 @@ namespace WindowsFormsApp1
             
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                KeyNumb.Visible = true;
+                KeyBox.Visible = false;
+                label1.Visible = true;
+            }
+            if (comboBox1.SelectedIndex == 1 || comboBox1.SelectedIndex == 2)
+            {
+                KeyNumb.Visible = false;
+                KeyBox.Visible = true;
+                label1.Visible = true;
+            }
+            if (comboBox1.SelectedIndex == 3)
+            {
+                KeyNumb.Visible = false;
+                KeyBox.Visible = false;
+                label1.Visible = false;
+            }
+
+        }
     }
 
 
-    
+
 
     public class RailFenceEnc : Object
     {
@@ -501,10 +535,14 @@ namespace WindowsFormsApp1
                 k++;
             for (i = 0; i < k; i++)
             {
-                if (len >S)
-                    text.CopyTo(i* S, tmp,0,S);
+                if (len > S)
+                    text.CopyTo(i * S, tmp, 0, S);
                 else
+                {
                     text.CopyTo(i * S, tmp, 0, len);
+                    for (int j = len; j < S; j++)
+                        tmp[j] = '*';
+                }
                 len -= S;
                 result = result + encTwoBytes(tmp);
             }
@@ -526,22 +564,22 @@ namespace WindowsFormsApp1
 
             for (i = 0; i < size; i++)           
                 for (j = 0; j < size; j++)              
-                    if (table1[i, j] == 1 && tmp[i,j] != 0)                   
+                    if (table1[i, j] == 1 && tmp[i,j] != 0 && tmp[i, j] != '*')                   
                         result = result + tmp[i, j];
 
             for (i = 0; i < size; i++)
                 for (j = 0; j < size; j++)
-                    if (table2[i, j] == 1 && tmp[i, j] != 0)
+                    if (table2[i, j] == 1 && tmp[i, j] != 0 && tmp[i, j] != '*')
                         result = result + tmp[i, j];
 
             for (i = 0; i < size; i++)
                 for (j = 0; j < size; j++)
-                    if (table3[i, j] == 1 && tmp[i, j] != 0)
+                    if (table3[i, j] == 1 && tmp[i, j] != 0 && tmp[i, j] != '*')
                         result = result + tmp[i, j];
 
             for (i = 0; i < size; i++)
                 for (j = 0; j < size; j++)
-                    if (table4[i, j] == 1 && tmp[i, j] != 0)
+                    if (table4[i, j] == 1 && tmp[i, j] != 0 && tmp[i, j] != '*')
                         result = result + tmp[i, j];
 
             return result;

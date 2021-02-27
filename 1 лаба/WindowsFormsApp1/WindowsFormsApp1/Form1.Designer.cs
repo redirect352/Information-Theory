@@ -34,8 +34,9 @@
             this.EncrText = new System.Windows.Forms.TextBox();
             this.KeyNumb = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.KeyBox = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.KeyNumb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             // 
             // KeyNumb
             // 
-            this.KeyNumb.Location = new System.Drawing.Point(637, 362);
+            this.KeyNumb.Location = new System.Drawing.Point(652, 408);
             this.KeyNumb.Minimum = new decimal(new int[] {
             2,
             0,
@@ -96,39 +97,51 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(579, 362);
+            this.label1.Location = new System.Drawing.Point(603, 410);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Ключ";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Пидорский метод",
-            "Столбцы ",
-            "Вижер",
-            "Решетка"});
-            this.comboBox1.Location = new System.Drawing.Point(42, 334);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(185, 21);
-            this.comboBox1.TabIndex = 10;
-            // 
             // KeyBox
             // 
-            this.KeyBox.Location = new System.Drawing.Point(637, 336);
+            this.KeyBox.Location = new System.Drawing.Point(652, 407);
             this.KeyBox.Name = "KeyBox";
             this.KeyBox.Size = new System.Drawing.Size(120, 20);
             this.KeyBox.TabIndex = 11;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.White;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Жд изгородь",
+            "Табличный метод",
+            "Вижера",
+            "Поворачивающаяся решетка"});
+            this.comboBox1.Location = new System.Drawing.Point(652, 362);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(120, 21);
+            this.comboBox1.TabIndex = 12;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(603, 365);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Метод";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 450);
-            this.Controls.Add(this.KeyBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.KeyBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.KeyNumb);
             this.Controls.Add(this.EncrText);
@@ -137,6 +150,7 @@
             this.Controls.Add(this.EncryptButton);
             this.Name = "Form1";
             this.Text = "Shifrator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.KeyNumb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,8 +165,9 @@
         private System.Windows.Forms.TextBox EncrText;
         private System.Windows.Forms.NumericUpDown KeyNumb;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox KeyBox;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
